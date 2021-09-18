@@ -21,7 +21,7 @@ endif
 " Cache latest daytime check in this var
 let s:day = 0
 
-fun! s:set_theme()
+fun! s:set_theme(timer_id)
 	let l:hour = strftime('%H')
 	let l:day = 0
 
@@ -53,4 +53,4 @@ endfun
 " Run every two minutes
 call timer_start(1000 * 60 * 2, function('s:set_theme'), {'repeat': -1})
 " Run on startup
-call s:set_theme()
+call s:set_theme(0)
